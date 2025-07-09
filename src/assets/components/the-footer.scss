@@ -1,0 +1,117 @@
+.footer {
+  background-color: #fff;
+  font-family: Poppins, sans-serif;
+  color: #000;
+  max-width: 1440px;
+  width: 100%;
+  padding: 32px;
+
+  &__container {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1133px;
+    width: 100%;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    
+  }
+
+  &__address {
+    font-size: 16x;
+    font-weight: 400;
+    color: #9f9f9f;
+    line-height: 1.6;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #9f9f9f;
+    margin-bottom: 16px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__link-item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+    color: #000000
+  }
+
+  &__link:hover {
+    color: #b88e2f;
+  }
+
+  &__newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid #787878;
+    padding: 8px;
+    max-width: 100%;
+    outline: none;
+    background-color: transparent;
+   
+  }
+
+  &__button {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #000;
+    font-weight: bold;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  
+  }
+
+  &__divider {
+    border-bottom: 1px solid #eaeaea;
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__bottom {
+    text-align: left;
+    padding: 40px 0;
+    color: #000000;
+    font-size: 16px;
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+

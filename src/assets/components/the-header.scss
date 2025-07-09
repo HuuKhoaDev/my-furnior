@@ -1,0 +1,142 @@
+.header {
+  position: sticky; 
+  top: auto;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #eee;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    font-family: sans-serif;
+  }
+
+  &__logo {
+    height: 32px;
+    width: auto;
+  }
+
+  &__logo-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #000000;
+   
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+  }
+
+  &__toggle-btn {
+    height: 40px;
+    height: 40px;
+  }
+
+  &__dropdown {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__menu-list {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  &__menu-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    font-family: Poppins, sans-serif;
+  }
+
+  &__menu-link:hover {
+    color: #b88e2f;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+  }
+
+  &__action-list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__action-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__action-link {
+    display: inline-block;
+  }
+
+  &__icon {
+    width: 30px;
+    height: 25px;
+    object-fit: contain;
+  }
+
+  &__cart {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__cart-count {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -4px;
+    right: -7px;
+    background-color: #b88e2f;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 100;
+  }
+
+}

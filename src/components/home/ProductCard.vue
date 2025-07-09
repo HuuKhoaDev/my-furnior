@@ -131,15 +131,20 @@
 </style>
 
 <script setup>
+import { useCartStore } from '@/stores/cart'
+
+const { addToCart, cartItems } = useCartStore()
 const props = defineProps({
   product: Object,
   customClass: String,
 })
 
-const emit = defineEmits(['addToCart'])
-
 function handleAddToCart() {
-  // console.log('Added to cart:', props.product)
-  emit('addToCart', props.product)
+  console.log('Added to cart:', props.product)
+  // emit('addToCart', props.product)
+
+  addToCart(props.product)
+
+  console.log(cartItems)
 }
 </script>

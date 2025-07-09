@@ -63,7 +63,7 @@
                     <router-link to="#" class="header__action-link">
                       <img src="/images/cart_icon.png" alt="cart" />
                     </router-link>
-                    <span id="cart-count" class="header__cart-count">0</span>
+                    <span id="cart-count" class="header__cart-count">{{ cartItems.length }}</span>
                   </span>
                 </button>
               </li>
@@ -80,9 +80,12 @@
 import TheCart from './TheCart.vue'
 import router from '@/router'
 import { ref } from 'vue'
+import { useCartStore } from '@/stores/cart'
+
+const { cartItems } = useCartStore()
 
 console.log(router)
-const showCart = ref(false)
+const showCart = ref(true)
 </script>
 
 <style lang="scss" scoped>

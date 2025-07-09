@@ -12,6 +12,13 @@ import CheckoutView from '@/views/CheckoutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition // Maintain scroll position when using back/forward buttons
+    } else {
+      return { top: 0 } // Scroll to the top of the page for new navigations
+    }
+  },
   routes: [
     {
       path: '/',

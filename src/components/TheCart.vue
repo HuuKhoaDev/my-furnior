@@ -6,12 +6,23 @@
         <button class="cart-sidebar__close" @click="$emit('update:showCart', false)">×</button>
       </div>
       <div class="cart-sidebar__body">
-        <p class="cart-sidebar__empty-message">There is no products in cart</p>
+        <p v-if="cartItems.length === 0" class="cart-sidebar__empty-message">
+          There is no products in cart
+        </p>
+
+        <div v-else v-for="(product, index) in cartItems" :key="index" class="cart-sidebar__item">
+          <img :src="product.image" :alt="product.name" class="cart-sidebar__item-image" />
+          <div class="cart-sidebar__item-info">
+            <p class="cart-sidebar__item-name">{{ product.name }}</p>
+            <p class="cart-sidebar__item-price">{{ product.price }}</p>
+          </div>
+          <button class="cart-sidebar__remove" @click="removeFromCart(index)">×</button>
+        </div>
       </div>
       <div class="cart-sidebar__footer">
         <div class="cart-sidebar__subtotal">
           <span class="cart-sidebar__label">Subtotal</span>
-          <span class="cart-sidebar__value">Rs. 0</span>
+          <span class="cart-sidebar__value">Rs. {{ cartTotal.toFixed(2) }}</span>
         </div>
         <div class="cart-sidebar__actions">
           <router-link to="/cart" style="width: 100%">
@@ -29,10 +40,13 @@
 </template>
 
 <script setup>
+import { useCartStore } from '@/stores/cart'
 defineProps({
   showCart: Boolean,
 })
 defineEmits(['update:showCart'])
+
+const { cartItems, cartTotal, removeFromCart } = useCartStore()
 </script>
 
 <style lang="scss" scoped>
@@ -95,10 +109,54 @@ defineEmits(['update:showCart'])
     text-align: center;
     margin: 24px 0;
     overflow-y: auto;
+    gap: 16px;
   }
 
   &__empty-message {
     margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item-image {
+    width: 111px;
+    border-radius: 6px;
+  }
+
+  &__item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px;
+    font-family: Poppins, sans-serif;
+  }
+
+  &__item-name {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+  }
+
+  &__item-price {
+    color: #b88e2f;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &__remove {
+    border: 1px solid #9f9f99;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    background: #9f9f99;
+    color: #ffff;
+    font-weight: bold;
   }
 
   &__footer {

@@ -19,3 +19,9 @@
 <script setup>
 import TheContainer from '../TheContainer.vue'
 </script>
+
+<style lang="scss">
+.default-layout {
+  padding-top: 82px;
+}
+</style>

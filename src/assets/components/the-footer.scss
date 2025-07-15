@@ -114,4 +114,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .footer {
+
+    &__container {
+      display: flex;
+    }
+
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
 

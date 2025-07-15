@@ -139,7 +139,6 @@
 }
 
 .input-show-count {
-  /* width: 100%; */
   padding: 4px;
   margin: 0 24px 0 0;
   border: 1px solid #ccc;
@@ -153,5 +152,27 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    padding: 32px;
+  }
+
+  .toolbar-center {
+    flex-direction: column;
+  }
+
+  .shop-toolbar {
+    justify-content: center;
+  }
+
+  .shop-toolbar-left {
+    flex-direction: column;
+  }
+
+  .shop-toolbar-right {
+    flex-direction: column;
+  }
 }
 </style>

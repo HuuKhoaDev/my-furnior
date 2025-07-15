@@ -132,7 +132,12 @@
         </div>
       </div>
     </div>
-    <ProductPagination />
+    <ThePagination
+      :total="total"
+      :limit="limit"
+      :current-page="currentPage"
+      @update:currentPage="currentPage = $event"
+    />
     <div class="distance"></div>
     <FeatureSection />
   </div>
@@ -141,7 +146,13 @@
 <script setup>
 import PageBanner from '@/components/PageBanner.vue'
 import FeatureSection from '@/shop/FeatureSection.vue'
-import ProductPagination from '@/shop/ProductPagination.vue'
+import ThePagination from '@/components/ThePagination.vue'
+
+import { ref } from 'vue'
+
+const total = 9
+const limit = 3
+const currentPage = ref(1)
 </script>
 
 <style lang="scss" scoped>

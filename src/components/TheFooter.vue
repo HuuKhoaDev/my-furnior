@@ -13,12 +13,18 @@
         <div class="footer__column">
           <h4 class="footer__title">Link</h4>
           <ul class="footer__links">
-            <li class="footer__link-item"><a class="footer__link" href="">Home</a></li>
-            <li class="footer__link-item"><a class="footer__link" href="">Shop</a></li>
-            <li class="footer__link-item"><a class="footer__link" href="">About</a></li>
-            <li class="footer__link-item">
+            <router-link to="/" class="footer__link-item"
+              ><a class="footer__link" href="">Home</a></router-link
+            >
+            <router-link to="/shop" class="footer__link-item"
+              ><a class="footer__link" href="">Shop</a></router-link
+            >
+            <router-link to="/about" class="footer__link-item"
+              ><a class="footer__link" href="">About</a></router-link
+            >
+            <router-link to="/contact" class="footer__link-item">
               <a class="footer__link" href="./contact.html">Contact</a>
-            </li>
+            </router-link>
           </ul>
         </div>
 

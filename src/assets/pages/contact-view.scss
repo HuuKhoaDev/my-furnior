@@ -133,36 +133,28 @@
   }
   
 }
-
-
-
-
-
-
-
   
   @media (max-width: 768px) {
-    /* .contact-container {
-      padding: 32px;
-    } */
-  
-    .contact-content {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .contact-left {
-      display: flex;
-      flex-direction: row;
-      padding: 0;
-      flex-wrap: wrap;
-      max-width: 635px;
-      width: 100%;
-    }
-  
-    .contact-right {
-      width: 100%;
-      padding: 0;
+    .contact {
+
+      &__header {
+        margin-top: 20px;
+      }
+
+      &__container {
+        padding: 32px;
+      }
+
+      &__content {
+        flex-direction: column;
+      }
+
+      &__info-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 635px;
+        width: 100%;
+      }
     }
   }
   

@@ -5,9 +5,16 @@
       <div class="product-card__overlay" v-if="product.overlay">
         <button class="product-card__add-to-cart" @click="handleAddToCart">Add to cart</button>
         <div class="product-card__actions">
-          <span><img src="/images/share.png" alt="share" /> Share</span>
+          <span @click="shareToFacebook"><img src="/images/share.png" alt="share" /> Share</span>
           <span><img src="/images/Compare.png" alt="compare" /> Compare</span>
-          <span><img src="/images/Like.png" alt="like" /> Like</span>
+          <span
+            class="product-card__like"
+            :class="{ liked: wishlistStore.isLiked(product) }"
+            @click="wishlistStore.toggleWishlist(product)"
+          >
+            <img src="/images/Like.png" alt="like" />
+            Like
+          </span>
         </div>
       </div>
     </div>
@@ -132,6 +139,8 @@
 
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { useWishlistStore } from '@/stores/wishlist'
+const wishlistStore = useWishlistStore()
 
 const { addToCart, cartItems } = useCartStore()
 const props = defineProps({
@@ -147,4 +156,18 @@ function handleAddToCart() {
 
   console.log(cartItems)
 }
+
+function shareToFacebook() {
+  const urlToShare = 'http://localhost:5173/'
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlToShare)}`
+
+  window.open(facebookShareUrl, '_blank', 'width=600,height=400')
+}
 </script>
+
+<style lang="scss" scoped>
+.product-card__like.liked img {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(75%) saturate(3341%) hue-rotate(330deg)
+    brightness(105%) contrast(101%);
+}
+</style>

@@ -20,6 +20,7 @@
   font-family: 'Segoe UI', sans-serif;
   margin-top: 20px;
   background-color: #fff;
+  width: 100%;
 
   &__title {
     font-size: 36px;
@@ -38,7 +39,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    width: 100%;
   }
 
   &__item {
@@ -66,6 +68,23 @@
     font-weight: 700;
     margin-top: 20px;
     color: #333;
+  }
+}
+
+@media (max-width: 768px) {
+  .category {
+    // width: 100%;
+    padding: 32px;
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__image {
+      max-width: 676px;
+      width: 100%;
+    }
   }
 }
 </style>

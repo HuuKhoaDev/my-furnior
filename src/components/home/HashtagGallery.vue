@@ -118,6 +118,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .hashtag {
+    width: 100%;
+    padding: 32px;
+  }
+}
 </style>
 
 <script setup></script>

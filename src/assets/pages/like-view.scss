@@ -1,18 +1,90 @@
-.content-heart {
+.wishlist-page {
+  &__content {
     display: flex;
     flex-direction: column;
     padding: 80px;
-    border-bottom: 1px solid #9f9f9f4d;
+    border-bottom: 1px solid rgba(159, 159, 159, 0.3);
     width: 100%;
+
+    @media (max-width: 768px) {
+      padding: 32px;
+    }
   }
-  
-  .content-heart p {
+
+  &__empty-msg {
     text-align: center;
     font-size: 24px;
     font-weight: 500;
     opacity: 0.7;
     max-width: 1300px;
     width: 100%;
-    
   }
-  
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 1440px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1280px;
+    width: 100%;
+    background: #f9f1e7;
+    border-radius: 5px;
+
+    &-image {
+      max-width: 83px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 20px;
+    }
+
+    &-info {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    &-title {
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        color: #d87d4a;
+      }
+    }
+
+    &-price {
+      color: #000;
+    }
+
+    &-actions {
+      padding: 0 20px;
+    }
+  }
+
+  &__remove-btn {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    font-size: 26px;
+    font-weight: bold;
+    color: #9f9f9f;
+
+    // &:hover {
+    //   color: #ff4d4f;
+    // }
+  }
+}

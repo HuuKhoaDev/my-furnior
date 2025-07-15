@@ -91,4 +91,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .homepage {
+    &__content {
+      width: 100%;
+      padding: 120px 32px;
+    }
+  }
+}
 </style>

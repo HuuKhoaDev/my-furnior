@@ -90,7 +90,17 @@
                   <p>Subtotal</p>
                 </div>
 
-                <div class="checkout__order-items"></div>
+                <div class="checkout__order-items">
+                  <div v-for="(item, index) in cartItems" :key="index" class="checkout__order-item">
+                    <div class="checkout__order-item-first">
+                      <p class="checkout__order-item-name">
+                        {{ item.name }}
+                      </p>
+                      <p class="checkout__order-item-core">× {{ item.quantity || 1 }}</p>
+                    </div>
+                    <p class="checkout__order-item-price">Rs. {{ item.price }}</p>
+                  </div>
+                </div>
 
                 <div class="checkout__order-total">
                   <div class="checkout__order-row">
@@ -100,30 +110,53 @@
 
                   <div class="checkout__order-row">
                     <p>Total</p>
-                    <p class="checkout__total-price">Rs. 0</p>
+                    <p class="checkout__total-price">Rs. {{ cartTotal }}</p>
                   </div>
                 </div>
               </div>
 
               <div class="checkout__payments">
                 <div class="checkout__payment-method">
-                  <label for="bank">
-                    <input type="radio" id="bank" name="payment" />
+                  <label
+                    :class="{
+                      'checkout__payment-label': true,
+                      'checkout__payment-label--selected': selectedPayment === 'bank',
+                    }"
+                  >
+                    <input
+                      type="radio"
+                      id="bank"
+                      value="bank"
+                      name="payment"
+                      v-model="selectedPayment"
+                    />
                     Direct Bank Transfer
                   </label>
-                  <p class="checkout__payment-desc hidden">
+
+                  <p class="checkout__payment-desc" v-if="selectedPayment === 'bank'">
                     Make your payment directly into our bank account. Please use your Order ID as
                     the payment reference. Your order will not be shipped until the funds have
                     cleared in our account.
                   </p>
                 </div>
-
                 <div class="checkout__payment-method">
-                  <label for="cash">
-                    <input type="radio" id="cash" name="payment" />
+                  <label
+                    :class="{
+                      'checkout__payment-label': true,
+                      'checkout__payment-label--selected': selectedPayment === 'cash',
+                    }"
+                  >
+                    <input
+                      type="radio"
+                      id="cash"
+                      value="cash"
+                      name="payment"
+                      v-model="selectedPayment"
+                    />
                     Cash On Delivery
                   </label>
-                  <p class="checkout__payment-desc hidden">
+
+                  <p class="checkout__payment-desc" v-if="selectedPayment === 'cash'">
                     Make your payment directly into our bank account. Please use your Order ID as
                     the payment reference. Your order will not be shipped until the funds have
                     cleared in our account.
@@ -153,6 +186,10 @@
 <script setup>
 import PageBanner from '@/components/PageBanner.vue'
 import FeatureSection from '@/shop/FeatureSection.vue'
+import { useCartStore } from '@/stores/cart'
+import { ref } from 'vue'
+const selectedPayment = ref('')
+const { cartItems, cartTotal } = useCartStore()
 </script>
 
 <style lang="scss" scoped>

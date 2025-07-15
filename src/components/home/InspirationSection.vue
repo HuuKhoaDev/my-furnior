@@ -3,8 +3,7 @@
     <div class="inspiration__content">
       <h3 class="inspiration__title">50+ Beautiful rooms inspiration</h3>
       <p class="inspiration__description">
-        Our designer already made a lot of beautiful prototipe of rooms<br />
-        that inspire you
+        Our designer already made a lot of beautiful prototipe of rooms that inspire you
       </p>
       <button class="inspiration__button">Explore More</button>
     </div>
@@ -46,7 +45,6 @@
   align-items: center;
   background: #fdf8f2;
   padding: 40px 80px;
-  padding-right: 0;
   width: 100%;
   max-width: 1440px;
 
@@ -61,10 +59,13 @@
     color: #2d2d2d;
     font-family: Poppins, sans-serif;
     word-wrap: break-word;
-    padding-bottom: 4px;
+    padding-bottom: 7px;
+    width: 50%;
   }
 
   &__description {
+    width: 47%;
+    line-height: 1.5;
     font-weight: 500;
     font-size: 16px;
     color: #616161;
@@ -196,6 +197,22 @@
 
     &--active {
       background-color: #c09747;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .inspiration {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+
+    &__content {
+      padding: 0;
+    }
+
+    &__title {
+      width: 100%;
     }
   }
 }

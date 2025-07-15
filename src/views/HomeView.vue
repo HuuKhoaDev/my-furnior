@@ -2,7 +2,7 @@
   <div class="homepage">
     <HomeIntro />
     <CategorySection />
-    <ProductList />
+    <ProductList title="Our Products" />
     <InspirationSection />
     <HashtagGallery />
   </div>

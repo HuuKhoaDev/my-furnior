@@ -104,6 +104,17 @@
     padding: 6px 0;
   }
 
+  &__order-item-first {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__order-item-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #9f9f9f;
+  }
+
   &__order-total {
     display: flex;
     flex-direction: row;
@@ -145,15 +156,25 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      
     }
+
   }
 
+  &__payment-label--selected {
+    color: #9F9F9F;
+    font-weight: 400;
+  }
+
+  
+
   &__payment-desc {
-    display: none;
+    // display: none;  
     margin-top: 20px;
     line-height: 1.5;
     font-size: 16px;
-    color: #555;
+    color: #9F9F9F;
+    font-weight: 300;
 
     .active {
       display: block;
@@ -201,8 +222,36 @@
       background-color: #000000;
       color: #ffffff;
     }
-  }
+  } 
+}
 
-  
-  
+@media (max-width: 768px) {
+  .checkout {
+
+    &__form {
+      grid-template-columns: repeat(1 ,1fr)
+    }
+
+    &__form-title {
+      margin: 0;
+    }
+
+    &__form-left {
+      max-width: unset;
+      padding: unset;
+    }
+
+    &__form-right {
+      padding: unset;
+    }
+
+    &__content {
+      max-width: unset;
+    }
+
+    &__form-row {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

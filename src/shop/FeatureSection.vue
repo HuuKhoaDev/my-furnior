@@ -70,4 +70,24 @@ const features = [
   font-size: 17px;
   color: #7c7c7c;
 }
+
+@media (max-width: 768px) {
+  .features {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .feature-wrap {
+    gap: 30px;
+  }
+
+  .feature-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+}
 </style>

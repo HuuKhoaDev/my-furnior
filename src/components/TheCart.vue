@@ -13,7 +13,9 @@
         <div v-else v-for="(product, index) in cartItems" :key="index" class="cart-sidebar__item">
           <img :src="product.image" :alt="product.name" class="cart-sidebar__item-image" />
           <div class="cart-sidebar__item-info">
-            <p class="cart-sidebar__item-name">{{ product.name }}</p>
+            <p class="cart-sidebar__item-name">
+              <router-link style="color: black" to="/product">{{ product.name }}</router-link>
+            </p>
             <p class="cart-sidebar__item-price">{{ product.price }}</p>
           </div>
           <button class="cart-sidebar__remove" @click="removeFromCart(index)">×</button>
@@ -22,7 +24,11 @@
       <div class="cart-sidebar__footer">
         <div class="cart-sidebar__subtotal">
           <span class="cart-sidebar__label">Subtotal</span>
-          <span class="cart-sidebar__value">Rs. {{ cartTotal.toFixed(2) }}</span>
+          <span class="cart-sidebar__value"
+            ><span class="cart-sidebar__value">
+              Rp {{ cartStore.cartTotal.toLocaleString('id-ID') }}</span
+            >
+          </span>
         </div>
         <div class="cart-sidebar__actions">
           <router-link to="/cart" style="width: 100%">
@@ -46,7 +52,8 @@ defineProps({
 })
 defineEmits(['update:showCart'])
 
-const { cartItems, cartTotal, removeFromCart } = useCartStore()
+const { cartItems, removeFromCart } = useCartStore()
+const cartStore = useCartStore()
 </script>
 
 <style lang="scss" scoped>
@@ -139,7 +146,6 @@ const { cartItems, cartTotal, removeFromCart } = useCartStore()
   &__item-name {
     font-size: 16px;
     font-weight: 400;
-    color: #000000;
   }
 
   &__item-price {
@@ -205,5 +211,8 @@ const { cartItems, cartTotal, removeFromCart } = useCartStore()
       }
     }
   }
+}
+
+@media (max-width: 768px) {
 }
 </style>

@@ -47,7 +47,7 @@
 .toolbar {
   display: flex;
   justify-content: space-between;
-  padding: 32px;
+  // padding: 32px;
   width: 100%;
 }
 
@@ -153,5 +153,24 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    padding: 32px;
+  }
+  .toolbar-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .shop-toolbar-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 </style>

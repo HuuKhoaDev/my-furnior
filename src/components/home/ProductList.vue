@@ -1,8 +1,8 @@
 <template>
   <div class="products">
-    <h2 class="products__title">Our Products</h2>
+    <h2 class="products__title">{{ title }}</h2>
     <div class="products__grid">
-      <ProductCard
+      <TheProductCard
         v-for="product in products"
         :key="product.id"
         :product="product"
@@ -10,93 +10,55 @@
       />
     </div>
     <div class="products__load-more">
-      <button class="products__show-more">Show More</button>
+      <button class="products__show-more" v-if="isShowButtonShowMore" @click="addMore">
+        Show More
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import ProductCard from './ProductCard.vue'
+import { computed, onMounted, ref } from 'vue'
+import ProductService from '@/service/index.ts'
+import TheProductCard from '../TheProductCard.vue'
 
 defineProps({
   prodcut: Array,
   addToCart: Function,
+  title: String,
 })
 
-const products = [
-  {
-    name: 'Syltherine',
-    description: 'Stylish cafe chair',
-    price: 'Rp 2.500.000',
-    oldPrice: 'Rp 3.500.000',
-    image: '/images/Syltherine_img.png',
-    overlay: true,
-    customClass: 'product-card--syltherine',
-  },
-  {
-    name: 'Leviosa',
-    description: 'Stylish cafe chair',
-    price: 'Rp 2.500.000',
-    image: '/images/Leviosa_img.png',
-    overlay: true,
-    customClass: 'product-card--leviosa',
-  },
-  {
-    name: 'Lolito',
-    description: 'Luxyry big sofa',
-    price: 'Rp 7.000.000',
-    oldPrice: 'Rp 14.000.000',
-    image: '/images/Lolito_img.png',
-    overlay: true,
-    customClass: 'product-card--lolito',
-  },
-  {
-    name: 'Respira',
-    description: 'Outdoor bar table and stool',
-    price: 'Rp 500.000',
-    image: '/images/Respira_img.png',
-    overlay: true,
-    customClass: 'product-card--respira',
-  },
-  {
-    name: 'Grifo',
-    description: 'Night lamp',
-    price: 'Rp 1.500.000',
-    image: '/images/Grifo_img.png',
-    overlay: true,
-    customClass: 'product-card--grifo',
-  },
-  {
-    name: 'Muggo',
-    description: 'Small mug',
-    price: 'Rp 150.000',
-    image: '/images/Muggo_img.png',
-    overlay: true,
-    customClass: 'product-card--muggo',
-  },
-  {
-    name: 'Pingky',
-    description: 'Cute bed set',
-    price: 'Rp 7.000.000',
-    oldPrice: 'Rp 14.000.000',
-    image: '/images/Pingky_img.png',
-    overlay: true,
-    customClass: 'product-card--pingky',
-  },
-  {
-    name: 'Potty',
-    description: 'Minimalist flower pot',
-    price: 'Rp 500.000',
-    image: '/images/Potty_img.png',
-    overlay: true,
-    customClass: 'product-card--potty',
-  },
-]
+const products = ref([])
+const page = ref(1)
+const total = ref(0)
+
+const isShowButtonShowMore = computed(() => {
+  return products.value.length < total.value
+})
+
+const addMore = () => {
+  page.value++
+
+  fetchData()
+}
+
+const fetchData = () => {
+  const res = ProductService.getList(page.value, 8)
+  products.value = [...products.value, ...res.items]
+
+  total.value = res.total
+}
+
+onMounted(() => {
+  fetchData()
+})
 </script>
 
 <style lang="scss">
 .products {
   padding: 32px;
+  max-width: 1440px;
+  width: 100%;
 
   &__title {
     padding: 30px 20px;
@@ -134,6 +96,17 @@ const products = [
   &__show-more:hover {
     background: #b88e2f;
     color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+  .products {
+    padding: 32px;
+    width: 100%;
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 </style>

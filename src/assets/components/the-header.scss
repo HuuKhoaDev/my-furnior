@@ -43,10 +43,10 @@
     width: 100%;
   }
 
-  &__toggle-btn {
-    height: 40px;
-    height: 40px;
-  }
+  // &__toggle-btn {
+  //   height: 40px;
+  //   height: 40px;
+  // }
 
   &__dropdown {
     display: flex;
@@ -127,7 +127,7 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    top: -4px;
+    top: -5px;
     right: -7px;
     background-color: #b88e2f;
     color: white;
@@ -140,3 +140,4 @@
   }
 
 }
+
